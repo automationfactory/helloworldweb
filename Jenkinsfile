@@ -10,17 +10,17 @@ stage ('SCM_checkout') {
 	}
 
 stage ('Build') {
-	sh 'mvn clean package'
+	bat 'mvn clean package'
 	}
 
 stage ('archive') {
 	archiveArtifacts 'target/*.war'
 	}
 
-stage ('deploy') {
-	sh '''cp target/Helloworldwebapp.war /opt/apache-tomcat-8.5.21/webapps
-	/opt/apache-tomcat-8.5.21/bin/shutdown.sh
-	/opt/apache-tomcat-8.5.21/bin/startup.sh'''
-	}
+//stage ('deploy') {
+//	sh '''cp target/Helloworldwebapp.war /opt/apache-tomcat-8.5.21/webapps
+//	/opt/apache-tomcat-8.5.21/bin/shutdown.sh
+//	/opt/apache-tomcat-8.5.21/bin/startup.sh'''
+//	}
 
 }
